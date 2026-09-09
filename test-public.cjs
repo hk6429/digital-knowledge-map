@@ -17,4 +17,10 @@ assert(!html.includes('__DATA__'));
 for(const forbidden of ['/Users/','private-source','private-work','claude.ai/chat','docs.google.com/','@gmail.com','sk-ant-','ghp_','gho_','-----BEGIN'])assert(!html.includes(forbidden),'公開檔案含敏感字樣：'+forbidden);
 assert.deepEqual(fs.readdirSync(__dirname+'/public').sort(),['index.html']);
 assert(d.nodes.flatMap(n=>n.sources).every(s=>!s.file.includes('://')&&!s.file.includes('.md')));
+const visibleSource=html.match(/function visible\(\)\{[^\n]+/)[0];
+const inputs={'#day':{value:'all'},'#search':{value:''},'#candidates':{checked:false}};
+const visible=new Function('D','$',visibleSource+';return visible')(d,s=>inputs[s]);
+assert.equal(visible().ls.length,52,'來源紀錄實線不可被候選篩選器隱藏');
+inputs['#candidates'].checked=true;assert.equal(visible().ls.length,152);
+for(const month of ['2026-06','2026-07','2026-08']){inputs['#day'].value=month;assert(visible().ns.length>0)}
 console.log('通過：92 天日期邊界、Claude 內容全讀、索引數量、節點連線、公開目錄白名單與敏感資訊掃描。');
