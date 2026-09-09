@@ -49,7 +49,21 @@ export function reframe(source){
  for(const t of themes)t.dates=uniqueDates(nodes.filter(n=>n.theme===t.theme));
  nodes.unshift(...themes.filter(t=>t.dates.length));
  for(const l of links){const n=nodes.find(n=>n.id===l.target);l.dates=n.dates;l.date=n.dates.at(-1);}
- return {...source,nodes,links,sourceNodes:source.nodes,sourceLinks:source.links,tools:source.nodes.filter(n=>n.kind==='工具'),unmapped:source.nodes.filter(n=>!used.has(n.id)&&n.kind!=='工具'),themes:themes.filter(t=>t.dates.length),model:'life-work-v2',classificationNote:'分類以國文教師、資訊組長、自我領導課程與創作生活為出發點；不是根據工具使用次數決定重心。',stats:{...source.stats,original_nodes:source.nodes.length,source_links:source.links.length,focus_themes:themes.filter(t=>t.dates.length).length,keywords:nodes.filter(n=>n.kind==='關鍵字').length}};
+ // Project keyword bridges from retained co-occurrences, never from a recording tool.
+ const lookup=new Map(nodes.map(n=>[n.id,n])),bridges=new Map();
+ for(const l of source.links){
+  const a=lookup.get(l.source),b=lookup.get(l.target);
+  if(l.type!=='待確認'||!a?.keyword||!b?.keyword||a.keyword===b.keyword)continue;
+  const pair=[a.keyword,b.keyword].sort(),id=pair.join('|');
+  if(!bridges.has(id))bridges.set(id,{source:pair[0],target:pair[1],type:'待確認',label:'跨知識共現線索',evidence:[]});
+  bridges.get(id).evidence.push({...l});
+ }
+ for(const l of bridges.values()){
+  l.dates=[...new Set(l.evidence.flatMap(e=>e.dates))].sort();l.date=l.dates.at(-1);
+  l.reason=l.evidence.length+' 組原始共現關係支持這條探索線索；可能重疊，不加總為來源數。共現不等於因果或已確認的知識關係。';links.push(l);
+ }
+ for(const n of nodes)n.level=n.kind==='重心'?1:n.kind==='關鍵字'?2:3;
+ return {...source,nodes,links,sourceNodes:source.nodes,sourceLinks:source.links,tools:source.nodes.filter(n=>n.kind==='工具'),unmapped:source.nodes.filter(n=>!used.has(n.id)&&n.kind!=='工具'),themes:themes.filter(t=>t.dates.length),model:'life-work-v3',classificationNote:'分類以國文教師、資訊組長、自我領導課程與創作生活為出發點；不是根據工具使用次數決定重心。',stats:{...source.stats,original_nodes:source.nodes.length,source_links:source.links.length,focus_themes:themes.filter(t=>t.dates.length).length,keywords:nodes.filter(n=>n.kind==='關鍵字').length,knowledge_bridges:bridges.size}};
 }
 if(process.argv[1]===fileURLToPath(import.meta.url)){
  const dir=path.dirname(fileURLToPath(import.meta.url));

@@ -17,7 +17,7 @@ assert(!html.includes('__DATA__'));
 for(const forbidden of ['/Users/','private-source','private-work','claude.ai/chat','docs.google.com/','@gmail.com','sk-ant-','ghp_','gho_','-----BEGIN'])assert(!html.includes(forbidden),'公開檔案含敏感字樣：'+forbidden);
 assert.deepEqual(fs.readdirSync(__dirname+'/public').sort(),['index.html']);
 assert(d.nodes.flatMap(n=>n.sources).every(s=>!s.file.includes('://')&&!s.file.includes('.md')));
-assert.equal(d.model,'life-work-v2');
+assert.equal(d.model,'life-work-v3');
 assert.equal(d.themes.length,7);assert.equal(d.stats.keywords,19);
 assert.equal(d.sourceNodes.length,83);assert.equal(d.sourceLinks.length,152);
 assert(d.sourceNodes.some(n=>n.id==='claude'));
@@ -27,11 +27,20 @@ assert.equal(d.nodes.filter(n=>n.id.startsWith('project-')).length,53,'原有具
 const visibleSource=html.slice(html.indexOf('function visible(){'),html.indexOf('function transform(){'));
 const inputs={'#month':{value:'all'},'#search':{value:''}};
 const getView=(focus=null,key=null)=>new Function('D','$','focus','key',visibleSource+';return visible()')(d,s=>inputs[s],focus,key);
-assert.equal(getView().ns.length,26,'總覽只應顯示重心與關鍵字');
-assert.equal(getView().ls.length,19);
+assert.equal(getView().ns.length,96,'總覽完整呈現三層');
+assert.deepEqual([...new Set(d.nodes.map(n=>n.level))].sort(),[1,2,3]);
+assert.equal(d.links.filter(l=>l.type==='分類').length,89);
+const reached=new Set([d.nodes[0].id]);let changed=true;
+while(changed){changed=false;for(const l of d.links)if(reached.has(l.source)||reached.has(l.target)){const before=reached.size;reached.add(l.source);reached.add(l.target);if(reached.size>before)changed=true}}
+assert.equal(reached.size,96,'完整主圖必須連通，不可仍是七座孤島');
+const bridgePairs=new Set();for(const l of d.links.filter(l=>l.type==='待確認')){
+ assert(l.evidence.length);const pair=[l.source,l.target].sort().join('|');assert(!bridgePairs.has(pair));bridgePairs.add(pair);
+ for(const e of l.evidence){assert(d.sourceLinks.some(s=>JSON.stringify(s)===JSON.stringify(e)),'不得捏造共現依據');assert.deepEqual([d.nodes.find(n=>n.id===e.source).keyword,d.nodes.find(n=>n.id===e.target).keyword].sort(),[l.source,l.target].sort())}
+}
+assert(getView('life','key-finance').ns.some(n=>n.id==='key-design'),'聚焦理財仍保留教育工具設計的共現連線');
 assert(getView('learning','key-feedback').ns.some(n=>n.id==='grading'));
 assert(getView('lead','key-habits').ns.some(n=>n.label==='自我領導力環島棋'));
 for(const month of ['2026-06','2026-07','2026-08']){inputs['#month'].value=month;assert(getView().ns.length>0)}
 inputs['#month'].value='all';inputs['#search'].value='文豪';assert(getView().ns.some(n=>n.label==='文豪笑傳'));
 inputs['#search'].value='Claude';assert.equal(getView().ns.length,0,'工具不可重新變成圖上節點');
-console.log('通過：7 重心／19 關鍵字、53 專案保留、來源不遺失、工具不入主圖、分層展開、搜尋與月份、日期及隱私。');
+console.log(`通過：96 節點三層全貌、單一連通網路、${bridgePairs.size} 條有原始依據且不重複的共現線索、聚焦保留鄰接、53 專案保留、搜尋月份及隱私。`);
