@@ -23,7 +23,7 @@ export const GROUPS=[
  ['game','遊戲化學習','learning',['字鬥','步學吾數','科學英雄','geometry-city','beiying-escape-room']],
  ['habits','七個習慣','lead',['自我領導與習慣','煉心訣','七訣鬥法','habit-quest-biw','habit-tycoon','zizhu-monopoly']],
  ['class','班級經營','lead',['class-points-299','新手導師','teacher-tycoon']],
- ['equipment','設備與服務','school',['平板借用']],
+ ['equipment','設備與服務','school',['平板借用','校園設備管理']],
  ['admin','校務支持','school',['校務與資訊行政','翰墨文書']],
  ['safety','資訊與媒體素養','school',['資安與媒體素養教材','media-literacy-quest','zgjh-it-quest']],
  ['growth','教師專業成長','sharing',['tqa-guoxiao','classroom-ops-slides-hub']],
@@ -31,8 +31,10 @@ export const GROUPS=[
  ['design','教育工具設計','sharing',['AI 工作流程','程式開發與部署','課程與教學設計']],
  ['write','寫作與表達','creation',['寫作與社群內容','PDF / 投影片','習慣書稿','wenxin-diaolong']],
  ['visual','故事與影像','creation',['影片成品','fuxiao-miling']],
- ['reflect','整理與反思','creation',['成果檢視與覆核','下一步與交接']],
+ ['reflect','整理與反思','creation',['成果檢視與覆核','下一步與交接','數位足跡與知識圖譜']],
+ ['reading-life','閱讀與思考','creation',['選書與閱讀探索']],
  ['finance','理財紀錄','life',['ETF 與投資紀錄']],
+ ['leisure','休閒與影音','life',['影音瀏覽與休息']],
 ];
 const FRIENDLY={'xunzhang-zhaiju':'尋章摘句','xingyin-doushi':'形音鬥士','ziyuan-tanzong':'字源探蹤','weijing-library':'圖書館熄燈後','wenren-duel':'文人對決','self-learning-orbit':'自主學習軌道','wanyao-wenshu':'萬妖文書','student-showcase-ink':'學生作品展示','gsat-ziran':'學測自然','gsat-shehui':'學測社會','gsat-guowen':'學測國文','gsat-english-bqe':'學測英語','gsat-math':'學測數學','tvet-exam-galaxy':'統測題庫星系','question_database':'題庫參考資料','geometry-city':'幾何學習城市','beiying-escape-room':'背影密室逃脫','habit-quest-biw':'七習慣闖關','habit-tycoon':'習慣養成工廠','zizhu-monopoly':'自我領導力環島棋','class-points-299':'班級積分紀錄','teacher-tycoon':'教師養成遊戲','media-literacy-quest':'媒體素養闖關','zgjh-it-quest':'校園資訊任務','tqa-guoxiao':'國小教檢題庫','classroom-ops-slides-hub':'教學與班級經營簡報','wenxin-diaolong':'文心雕龍','fuxiao-miling':'拂曉密令'};
 const DETAIL={'feedback':'重點是教師設定評分規準、設計平台與覆核回饋；不是把教師判斷交給 AI。','finance':'現有生活紀錄以 ETF 與投資相關筆記為主，不能據此推論家庭或健康狀態。','design':'以教學需求決定工具與流程；AI 是方法，不是工作的目的。','reflect':'回看成果、查證、交接與下一步，屬於工作反思的建議分類。'};
