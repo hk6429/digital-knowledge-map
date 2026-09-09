@@ -1,33 +1,43 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>大乃的工作與生活｜知識星圖</title><style>
-:root{color-scheme:light;--ink:#16332e;--paper:#f5f3ea;--line:#c3cfc2;--green:#185c4b}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.6 system-ui,-apple-system,"Noto Sans TC",sans-serif}button,input,select{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ce7220;outline-offset:3px}header{padding:24px 32px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}h1{font-size:30px;margin:0;letter-spacing:.1em}p{margin:6px 0}small{font-size:13px}.eyebrow{font-size:12px;letter-spacing:.24em;font-weight:800;color:#386b57}.badge{display:inline-block;background:#e0eadc;padding:4px 10px;border-radius:99px;font-size:13px;font-weight:700}.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:16px 32px}.toolbar input[type=search]{width:230px}input,select{background:#fffdf6;border:1px solid #849c8c;border-radius:8px;padding:8px}button{background:#fffdf6;border:1px solid #8ca18f;border-radius:8px;padding:7px 12px}button:hover{background:#e4eddc}.layout{display:grid;grid-template-columns:minmax(0,1fr) 360px;min-height:70vh;margin:0 22px 20px;border:1px solid #9fb19c;border-radius:18px;overflow:hidden;background:#fffdf5}.stage{position:relative;min-height:660px;background:radial-gradient(ellipse at 42% 38%,#fffef9 0%,#ecf0e3 70%,#dee7d8 100%)}svg{display:block;width:100%;height:660px;touch-action:none}aside{padding:24px;background:#fcfbf3;border-left:1px solid #c3cfc2;overflow:auto;max-height:760px}aside h2{font-size:23px;margin:12px 0}aside h3{font-size:15px;margin-top:24px}.legend{position:absolute;top:18px;left:20px;display:flex;flex-wrap:wrap;gap:12px;font-size:12px;pointer-events:none}.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.stagefoot{position:absolute;bottom:14px;left:20px;right:20px;display:flex;justify-content:space-between;gap:10px;font-size:12px}.zooms{display:flex;gap:5px}.node{cursor:grab}.node text{opacity:.8}.node.selected text,.node:hover text{opacity:1}.node text{font-size:13px;font-weight:700;fill:#16332e;paint-order:stroke;stroke:#fafcf0;stroke-width:4;stroke-linejoin:round;pointer-events:none}.edge{stroke:#528b7a;stroke-width:1.7;opacity:.52;cursor:pointer}.edge.candidate{stroke:#92733b;stroke-dasharray:5 6}.node:hover circle{stroke:#ce7220;stroke-width:4}.node.selected circle{stroke:#d47627;stroke-width:5}.dim{opacity:.14}.connections{display:grid;gap:8px}.connections button{text-align:left;padding:10px}.connections span{display:block;font-size:12px;color:#365f4d}.note{background:#edf1e4;padding:12px;border-radius:10px;font-size:14px}.source{word-break:break-all;font-size:12px;border-bottom:1px solid #dbe2d4;padding:8px 0}.allnodes{padding:0 32px 26px}.allnodes button{font-size:13px;margin:4px}.metrics{display:flex;gap:12px}.metrics b{font-size:23px}.metrics div{padding:10px 16px;border:1px solid #a4bba5;border-radius:12px}footer{padding:0 32px 28px;font-size:13px}label{font-size:14px}.empty{padding:40px}.linkrow{border-bottom:1px solid #d1ddca;margin-bottom:12px;padding-bottom:12px}@media(max-width:850px){header{align-items:flex-start;padding:20px;flex-direction:column}.toolbar{padding:12px 20px}.layout{grid-template-columns:1fr;margin:0 12px 12px}.stage{min-height:500px}svg{height:500px}aside{border-left:0;border-top:1px solid #c3cfc2;max-height:none}.legend{max-width:85%}h1{font-size:25px}.stagefoot{flex-direction:column}.metrics b{font-size:20px}}
-
-.themes{display:flex;flex-wrap:wrap;gap:8px;padding:0 32px 14px}.themes button{font-size:14px}.themes button.active{background:#d8e9db;border-color:#357b68}.node.theme text{font-size:17px;font-weight:800}.node.keyword text{font-size:14px}.node.project text{font-size:13px}.items{display:grid;gap:8px}.items button{text-align:left;font-size:14px}.period{font-size:13px;color:#617460}header .sub{max-width:750px;font-size:16px;color:#546c60}.sourcepanel{max-width:1200px;margin:10px 32px 25px;padding:18px;border:1px solid #bdcdb9;border-radius:14px}summary{cursor:pointer}.sourcepanel p{font-size:13px}.sourcepanel button{margin-top:12px}.stagehead{position:absolute;top:18px;left:20px;right:20px;display:flex;justify-content:space-between;gap:10px;font-size:12px;pointer-events:none}.edge{opacity:.3;stroke-width:1.5}.node.dim{opacity:.3}.steps{white-space:pre-line}@media(max-width:850px){.themes{padding:0 20px 12px;gap:6px}.themes button{font-size:12px;padding:6px 9px}.sourcepanel{margin:10px 14px 20px}.stagehead{font-size:10px}.toolbar input[type=search]{width:100%}} 
-@media(max-width:850px){.node.theme text{font-size:26px}.node.keyword text{font-size:22px}.node.project text{font-size:20px}}
-.graphscroll{height:660px;overflow:auto;padding-top:50px}.graphscroll svg{width:1000px;min-width:1000px;height:auto}.stagehead{z-index:2;background:#eff2e7;padding:10px;top:0;left:0;right:0}.stagefoot{position:relative;padding:12px;left:auto;right:auto;bottom:auto;background:#eff2e7}.layerheads{display:grid;grid-template-columns:280px 320px 400px;width:1000px;font-size:16px;font-weight:800;padding:8px 35px;background:#e0eadb}.node text{font-size:14px!important;opacity:1}.node.theme text{font-size:16px!important}.edge{fill:none;stroke-width:1.4;opacity:.28}.edge.candidate{stroke:#976c32;stroke-width:2;opacity:.35}.edge:hover,.edge:focus{stroke-width:5;opacity:1}.node.related circle{stroke:#a36927;stroke-width:3}.stage{min-width:0}.node.dim{opacity:.18}.edge.dim{opacity:.055}.edge.emphasis{opacity:.9;stroke-width:3}@media(max-width:850px){.graphscroll{height:540px}.stagehead{font-size:11px}.graphscroll svg{height:auto}}
-.graphscroll{overflow-anchor:none}.layerheads{position:sticky;top:0;z-index:1}.node.dim{opacity:.4}
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>大乃的工作與生活｜動態知識圖譜</title><style>
+:root{color-scheme:light;--paper:#f2efdb;--ink:#35362f;--panel:#eee4ccf2;--line:#d2c5a7}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.6 system-ui,-apple-system,"Noto Sans TC",sans-serif;overflow:hidden}button,input,select{font:inherit;color:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:16px;background:#f7f2e3;padding:5px 11px}button:hover{background:#e5d8b8}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #b78328;outline-offset:3px}header{position:fixed;z-index:2;left:22px;top:16px;max-width:calc(100% - 310px);pointer-events:none;text-shadow:0 1px var(--paper)}h1{font-size:23px;margin:0}header p{margin:4px 0;font-size:12px}.eyebrow{font-size:10px;letter-spacing:.2em}.controls{position:fixed;z-index:4;right:16px;top:16px;width:246px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:0 3px 15px #5144220a;max-height:calc(100dvh - 32px);overflow:auto}.controls summary{font-weight:700;cursor:pointer}.themes{display:grid;gap:4px;margin:10px 0}.themes label{display:flex;gap:7px;align-items:center;cursor:pointer;font-size:12px}.themes i{width:10px;height:10px;border-radius:50%;display:inline-block}input[type=checkbox],input[type=range]{accent-color:#ae7e2a}.controlrow{display:flex;align-items:center;gap:7px;margin:9px 0;font-size:12px}.controlrow input[type=range]{width:100px;min-width:0}.controlrow output{min-width:28px}input[type=search],select{border:1px solid var(--line);border-radius:6px;background:#faf7ee;padding:5px;width:100%;margin:4px 0}.buttons{display:flex;flex-wrap:wrap;gap:5px}.hint{font-size:11px;opacity:.8}.layout,.stage,.graphscroll{position:fixed;inset:0}.graphscroll{overflow:hidden}svg{display:block;width:100%;height:100%;touch-action:none}.stagehead{position:fixed;left:18px;bottom:52px;font-size:11px;pointer-events:none}.stagefoot{position:fixed;left:16px;bottom:16px;font-size:11px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:5px 10px;max-width:calc(100% - 32px)}.node{cursor:grab}.node text{font-size:12px;fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round;pointer-events:none}.node.theme text{font-size:14px;font-weight:700}.node .dot{stroke:var(--paper);stroke-width:1.5px}.node.selected .dot,.node:hover .dot,.node:focus .dot{stroke:#a76b20;stroke-width:3px}.node.pinned .dot{stroke:#292e29;stroke-width:2px}.node.label-hidden text{display:none}.node:hover text,.node:focus text,.node.selected text{display:block}.node.dim{opacity:.13}.edge{stroke:#77796a;fill:none;stroke-width:1.1;opacity:.24;cursor:pointer}.edge.candidate{stroke:#a37e42;stroke-dasharray:4 5;opacity:.18}.edge:hover,.edge:focus,.edge.emphasis{opacity:.9;stroke-width:2.6}.edge.dim{opacity:.025}.drawer{position:fixed;z-index:5;left:18px;bottom:82px;width:340px;max-height:65dvh;overflow:auto;border:1px solid var(--line);background:#faf6e9f5;border-radius:14px;padding:18px;box-shadow:0 8px 30px #5749271a}.drawer[hidden]{display:none}.drawer h2{font-size:20px;margin:10px 0}.drawer h3{font-size:14px;margin:18px 0 6px}.drawer p{font-size:13px}.badge{font-size:11px;border-radius:20px;background:#e9dec3;padding:3px 9px}.items{display:grid;gap:6px}.items button{text-align:left;font-size:12px}.source{font-size:11px;border-bottom:1px solid var(--line);padding:8px 0;word-break:break-word}.note{padding:10px;background:#eee7d6;border-radius:8px}.steps{white-space:pre-line}.sourcepanel{border-top:1px solid var(--line);margin-top:12px;padding-top:8px;font-size:11px}.sourcepanel p{font-size:11px}.sourcepanel summary{font-size:12px}.allnodes{border-top:1px solid var(--line);margin-top:10px;padding-top:8px}.allnodes summary{font-size:12px}.allnodes button{display:block;width:100%;font-size:11px;margin:4px 0;text-align:left}.close{float:right;font-size:12px}.layerlegend{font-size:11px;border-top:1px solid var(--line);padding-top:8px;margin-top:8px}footer{display:none}@media(max-width:650px){header{left:12px;top:12px;max-width:calc(100% - 120px)}h1{font-size:17px}header p{font-size:10px}.eyebrow{display:none}.controls{right:10px;top:10px;width:220px;padding:9px}.controls:not([open]){width:100px}.drawer{left:10px;right:10px;bottom:74px;width:auto;max-height:52dvh}.stagefoot{font-size:10px}.stagehead{bottom:59px;left:12px}}
 </style></head><body>
-<header><div><div class="eyebrow">教學・實踐・生活</div><h1>大乃的工作與生活</h1><p class="sub">從我在意的事出發，讓專案連回教學與日常。</p><p class="period">2026 六月 — 八月｜<span id="range"></span></p></div></header>
-<div class="toolbar"><input id="search" type="search" placeholder="找關鍵字或專案，例如：評量、文豪" aria-label="搜尋關鍵字或專案"><label>紀錄月份 <select id="month"><option value="all">六至八月</option><option value="2026-06">六月</option><option value="2026-07">七月</option><option value="2026-08">八月</option></select></label><button id="reset">回到重心總覽</button></div>
-<nav id="themes" class="themes" aria-label="選擇工作與生活重心"></nav>
-<main class="layout"><section class="stage" aria-label="工作與生活知識圖"><div class="stagehead"><span id="breadcrumb">三層知識串接</span><span id="counts"></span></div><div class="graphscroll"><div class="layerheads"><span>① 生活與工作重心</span><span>② 知識關鍵字</span><span>③ 專案與實踐</span></div><svg id="map" viewBox="0 0 1000 2600" aria-label="三層圖譜，可捲動、拖曳節點，虛線為待確認的共現線索"><g id="viewport"></g></svg></div><div class="stagefoot"><span id="status" aria-live="polite">實線：分類　虛線：共現待確認。捲動看全圖，點線看依據。</span><div class="zooms"><button id="out" aria-label="縮小">−</button><button id="in" aria-label="放大">＋</button></div></div></section><aside id="detail" aria-live="polite"></aside></main>
-<section class="allnodes"><strong>也可以直接點選</strong><div id="nodebuttons"></div></section>
-<details class="sourcepanel"><summary>來源與工具｜保留紀錄，不當作知識中心</summary><div id="sourcecontent"></div><button id="export">匯出去識別圖譜資料</button></details>
-<footer><p>重心與關鍵字是依專案用途整理的建議分類，不是用工具使用次數衡量人生，也不是因果或完成認證。</p><p>公開版保留六月至八月來源，不含私人原文、文件標題、網址與本機路徑；AI 輔助批改平台的規準、覆核與最終判斷仍由教師掌握。</p></footer>
+<header><div class="eyebrow">教學・實踐・生活</div><h1>大乃的工作與生活知識圖譜</h1><p>2026 六月 — 八月｜<span id="range"></span></p><p>三層知識串接・點節點看內容・滑過看關聯</p></header>
+<details class="controls" open><summary>圖譜控制</summary><nav id="themes" class="themes" aria-label="選擇工作與生活重心"></nav>
+<div class="controlrow"><label for="depth">顯示到第</label><input id="depth" type="range" min="1" max="3" value="3"><output id="depthout">3 層</output></div>
+<div class="controlrow"><label for="labels">標籤到第</label><input id="labels" type="range" min="0" max="3" value="2"><output id="labelsout">2 層</output></div>
+<input id="search" type="search" placeholder="搜尋關鍵字或專案" aria-label="搜尋關鍵字或專案">
+<label for="month" class="hint">紀錄月份</label><select id="month"><option value="all">六至八月</option><option value="2026-06">六月</option><option value="2026-07">七月</option><option value="2026-08">八月</option></select>
+<div class="buttons"><button id="reflow">重排</button><button id="center">置中</button><button id="zoomin" aria-label="放大圖譜">＋</button><button id="zoomout" aria-label="縮小圖譜">−</button><button id="reset">重設</button><button id="help">讀圖說明</button></div>
+<div class="layerlegend">大點：① 重心<br>中點：② 知識關鍵字<br>小點：③ 專案與實踐<br>實線：分類・虛線：共現待確認</div>
+<details class="allnodes"><summary>節點清單（鍵盤也可操作）</summary><div id="nodebuttons"></div></details>
+<details class="sourcepanel"><summary>來源與工具</summary><div id="sourcecontent"></div><button id="export">匯出去識別資料</button></details></details>
+<main class="layout"><section class="stage" aria-label="動態知識網路"><div class="stagehead"><span id="breadcrumb">三層動態網路</span>｜<span id="counts"></span></div><div class="graphscroll"><svg id="map" viewBox="0 0 1400 900" aria-label="可拖曳、縮放的三層知識圖譜"><g id="viewport"></g></svg></div><div class="stagefoot"><span id="status" aria-live="polite">拖曳固定・雙擊解除・滾輪縮放・拖空白處平移</span></div></section></main>
+<section class="drawer" id="drawer" aria-label="知識明細" hidden><button class="close" id="close">關閉明細</button><aside id="detail" aria-live="polite"></aside></section>
 <script id="dataset" type="application/json">__DATA__</script>
 <script>
 'use strict';
 const D=JSON.parse(document.querySelector('#dataset').textContent),$=s=>document.querySelector(s),NS='http://www.w3.org/2000/svg';
 const byId=new Map(D.nodes.map(n=>[n.id,n])),themeById=new Map(D.themes.map(n=>[n.theme,n]));
 let focus=null,key=null,selected=null,scale=1,pan={x:0,y:0},held=null,raf=null,energy=1,quiet=0,previous=0,accumulator=0,active={ns:[],ls:[]};
-const anchors=[{x:210,y:155},{x:530,y:145},{x:790,y:230},{x:805,y:520},{x:525,y:570},{x:230,y:535},{x:130,y:330}];
+const enabledThemes=new Set(D.themes.map(t=>t.theme));
+let layoutSeed=0;
 const positions=new Map(),nodeElements=new Map(),edgeElements=[];
-for(const n of D.nodes){const ti=D.themes.findIndex(t=>t.theme===n.theme),anchor=anchors[ti]||{x:500,y:350};n.anchor={...anchor};const siblings=D.nodes.filter(x=>x.theme===n.theme&&x.kind===n.kind),i=siblings.findIndex(x=>x.id===n.id),a=i*2.399963,r=n.kind==='重心'?0:n.kind==='關鍵字'?75:115+18*Math.sqrt(i);positions.set(n.id,{x:Math.max(90,Math.min(910,anchor.x+Math.cos(a)*r)),y:Math.max(85,Math.min(635,anchor.y+Math.sin(a)*r)),vx:0,vy:0})}
+function seedPositions(){
+ layoutSeed++;
+ for(const n of D.nodes){
+  const ti=D.themes.findIndex(t=>t.theme===n.theme),a=ti*Math.PI*2/7-.5;
+  const siblings=D.nodes.filter(x=>x.theme===n.theme&&x.level===n.level),i=siblings.findIndex(x=>x.id===n.id);
+  const jitter=i*2.399963+layoutSeed*.23,r=n.level===1?0:n.level===2?75:145+14*Math.sqrt(i);
+  positions.set(n.id,{x:650+Math.cos(a)*270+Math.cos(jitter)*r,y:450+Math.sin(a)*230+Math.sin(jitter)*r,vx:0,vy:0,pinned:false});
+ }
+}
+seedPositions();
 function el(tag,attrs={}){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);return e}
 function text(tag,value,parent,cls){const e=document.createElement(tag);e.textContent=value;if(cls)e.className=cls;parent.append(e);return e}
 function button(label,parent,fn){const b=text('button',label,parent);b.onclick=fn;return b}
 function visible(){
  const month=$('#month').value,q=$('#search').value.trim().toLowerCase();
- const eligible=D.nodes.filter(n=>month==='all'||n.dates.some(day=>day.startsWith(month)));let ns;
+ const eligible=D.nodes.filter(n=>enabledThemes.has(n.theme)&&n.level<=Number($('#depth').value)&&(month==='all'||n.dates.some(day=>day.startsWith(month))));let ns;
  if(q){const hits=eligible.filter(n=>(n.label+' '+(n.originalLabel||'')).toLowerCase().includes(q)),ids=new Set(hits.map(n=>n.id));for(const n of hits){ids.add('theme-'+n.theme);if(n.keyword)ids.add(n.keyword)}ns=eligible.filter(n=>ids.has(n.id))}
  else if(key)ns=eligible.filter(n=>n.id===key||n.keyword===key||n.id==='theme-'+focus);
  else if(focus)ns=eligible.filter(n=>n.theme===focus);
@@ -40,22 +50,7 @@ function visible(){
  ns=eligible.filter(n=>connected.has(n.id));
  const ids=new Set(ns.map(n=>n.id));return{ns,ls:D.links.filter(l=>ids.has(l.source)&&ids.has(l.target)&&(month==='all'||l.dates.some(d=>d.startsWith(month))))};
 }
-function arrange(){
- let y=70;const center=ids=>ids.reduce((sum,id)=>sum+positions.get(id).y,0)/ids.length;
- for(const theme of D.themes){
-  const keys=active.ns.filter(n=>n.theme===theme.theme&&n.level===2);
-  for(const k of keys){const children=active.ns.filter(n=>n.keyword===k.id);
-   const start=y;for(const n of children){positions.set(n.id,{x:650,y,vx:0,vy:0});y+=42}
-   if(!children.length)y+=50;
-   positions.set(k.id,{x:340,y:children.length?center(children.map(n=>n.id)):start,vx:0,vy:0});y+=24;
-  }
-  if(active.ns.some(n=>n.id===theme.id)){positions.set(theme.id,{x:70,y:keys.length?center(keys.map(n=>n.id)):y,vx:0,vy:0});if(!keys.length)y+=60}
-  y+=34;
- }
- const height=Math.max(600,y+60);$('#map').setAttribute('viewBox','0 0 1000 '+height);
- for(const n of active.ns){n.anchor={x:positions.get(n.id).x,y:positions.get(n.id).y};n.boundsY=height-35}
-}
-function transform(){$('#viewport').setAttribute('transform','translate('+pan.x+','+pan.y+') scale('+scale+')')}
+function transform(){$('#viewport').setAttribute('transform','translate('+pan.x+','+pan.y+') scale('+scale+')');for(const[id,g]of nodeElements){const n=byId.get(id),radius=n.level===1?13:n.level===2?7:3.5,t=g.querySelector('text'),circles=g.querySelectorAll('circle');circles[0].setAttribute('r',(radius+7)/scale);circles[1].setAttribute('r',radius/scale);circles[1].setAttribute('vector-effect','non-scaling-stroke');t.setAttribute('y',(radius+14)/scale);t.style.fontSize=(n.level===1?13:11)/scale+'px';t.style.strokeWidth=2/scale+'px'}}
 function point(e){const p=$('#map').createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform($('#map').getScreenCTM().inverse())}
 /* PHYSICS_START */
 
@@ -66,65 +61,73 @@ function physicsStep(ns,ls,ps,pinned,energy=1){
   const a=ps.get(ns[i].id),b=ps.get(ns[j].id);
   let dx=b.x-a.x,dy=b.y-a.y;
   if(Math.abs(dx)+Math.abs(dy)<.001){dx=.1;dy=.1}
-  const d=Math.hypot(dx,dy),f=Math.min(4,6500/Math.max(900,d*d));
+  const d=Math.hypot(dx,dy),f=Math.min(5,4200/Math.max(400,d*d));
   const fa=forces.get(ns[i].id),fb=forces.get(ns[j].id);
   fa.x-=dx/d*f;fa.y-=dy/d*f;fb.x+=dx/d*f;fb.y+=dy/d*f;
  }
  for(const l of ls){
   const a=ps.get(l.source),b=ps.get(l.target),dx=b.x-a.x,dy=b.y-a.y;
   const d=Math.max(.01,Math.hypot(dx,dy));
-  const anchored=ns.find(n=>n.id===l.source)?.anchor;
-  const f=(d-(l.type==='分類'?280:180))*(anchored?(l.type==='待確認'?.0003:.002):.012);
+  const f=(d-(l.type==='分類'?85:180))*(l.type==='待確認'?.002:.014);
   const fa=forces.get(l.source),fb=forces.get(l.target);
   fa.x+=dx/d*f;fa.y+=dy/d*f;fb.x-=dx/d*f;fb.y-=dy/d*f;
  }
  let speed=0;
  for(const n of ns){
   const p=ps.get(n.id),f=forces.get(n.id);
-  if(n.id===pinned){p.vx=0;p.vy=0;continue}
-  p.vx=((p.vx||0)+(f.x+((n.anchor?.x||500)-p.x)*(n.anchor?.5:.006))*energy)*.86;
-  p.vy=((p.vy||0)+(f.y+((n.anchor?.y||350)-p.y)*(n.anchor?.5:.006))*energy)*.86;
+  if(n.id===pinned||p.pinned){p.vx=0;p.vy=0;continue}
+  p.vx=((p.vx||0)+(f.x+(650-p.x)*.0008)*energy)*.86;
+  p.vy=((p.vy||0)+(f.y+(450-p.y)*.008)*energy)*.86;
   p.vx=Math.max(-14,Math.min(14,p.vx));p.vy=Math.max(-14,Math.min(14,p.vy));
   p.x+=p.vx;p.y+=p.vy;
-  const minX=n.anchor?35:90,minY=n.anchor?35:85,maxY=n.boundsY||635;
-  if(p.x<minX||p.x>910){p.x=Math.max(minX,Math.min(910,p.x));p.vx=0}
-  if(p.y<minY||p.y>maxY){p.y=Math.max(minY,Math.min(maxY,p.y));p.vy=0}
   speed=Math.max(speed,Math.abs(p.vx),Math.abs(p.vy));
  }
  return speed;
 }
 
 /* PHYSICS_END */
-function paint(){for(const[id,g]of nodeElements){const p=positions.get(id);g.setAttribute('transform','translate('+p.x+','+p.y+')')}for(const[l,line]of edgeElements){const a=positions.get(l.source),b=positions.get(l.target),bend=l.type==='待確認'?Math.max(170,a.x-100):(a.x+b.x)/2;line.setAttribute('d',`M ${a.x} ${a.y} C ${bend} ${a.y}, ${bend} ${b.y}, ${b.x} ${b.y}`)}}
+function paint(){for(const[id,g]of nodeElements){const p=positions.get(id);g.setAttribute('transform','translate('+p.x+','+p.y+')');g.classList.toggle('pinned',!!p.pinned)}for(const[l,line]of edgeElements){const a=positions.get(l.source),b=positions.get(l.target);line.setAttribute('d',`M ${a.x} ${a.y} L ${b.x} ${b.y}`)}}
+function centerGraph(){
+ if(!active.ns.length){scale=1;pan={x:0,y:0};transform();return}
+ const r=$('#map').getBoundingClientRect(),w=r.width,h=r.height;
+ $('#map').setAttribute('viewBox','0 0 '+w+' '+h);
+ const ps=active.ns.map(n=>positions.get(n.id)),minX=Math.min(...ps.map(p=>p.x))-90,maxX=Math.max(...ps.map(p=>p.x))+120,minY=Math.min(...ps.map(p=>p.y))-60,maxY=Math.max(...ps.map(p=>p.y))+65;
+ const reserve=w>650?280:0,top=w>650?110:145;
+ scale=Math.max(.12,Math.min(1.7,(w-reserve-40)/(maxX-minX),(h-top-85)/(maxY-minY)));
+ pan={x:20+(w-reserve-40-(maxX-minX)*scale)/2-minX*scale,y:top+(h-top-85-(maxY-minY)*scale)/2-minY*scale};transform();
+}
+function updateLabels(){const level=Number($('#labels').value);$('#labelsout').textContent=level+' 層';for(const[id,g]of nodeElements)g.classList.toggle('label-hidden',byId.get(id).level>level)}
+function highlight(id){
+ const ids=new Set(id?[id]:[]);for(const l of active.ls)if(l.source===id||l.target===id){ids.add(l.source);ids.add(l.target)}
+ for(const[n,g]of nodeElements){g.classList.toggle('dim',!!id&&!ids.has(n));g.classList.toggle('selected',n===selected)}
+ for(const[l,e]of edgeElements){const yes=l.source===id||l.target===id;e.classList.toggle('dim',!!id&&!yes);e.classList.toggle('emphasis',!!id&&yes)}
+}
+
 function animate(time){raf=null;accumulator+=previous?Math.min(50,time-previous):16.67;previous=time;while(accumulator>=1000/60){energy=held?1:energy*.985;const speed=physicsStep(active.ns,active.ls,positions,held,energy);quiet=speed<.035&&!held?quiet+1:0;accumulator-=1000/60}paint();if(quiet<50)raf=requestAnimationFrame(animate);else previous=0}
 function wake(){quiet=0;energy=1;if(raf===null){previous=0;accumulator=0;raf=requestAnimationFrame(animate)}}
 function bindDrag(g,n){let pointer=null,last=null,moved=false,origin=null;const p=positions.get(n.id);
- const finish=e=>{if(e.pointerId!==pointer)return;const id=pointer;pointer=null;held=null;last=null;if(g.hasPointerCapture(id))g.releasePointerCapture(id);g.style.cursor='grab';wake();if(e.type==='pointerup'){if(moved){selected=n.id;detail(n);$('#status').textContent='已拉動：'+n.label}else choose(n.id)}};
+ const finish=e=>{if(e.pointerId!==pointer)return;const id=pointer;pointer=null;held=null;last=null;if(g.hasPointerCapture(id))g.releasePointerCapture(id);g.style.cursor='grab';wake();if(e.type==='pointerup'){if(moved){p.pinned=true;selected=n.id;detail(n);$('#status').textContent='已固定：'+n.label+'；雙擊或明細按鈕可解除'}else choose(n.id)}};
  g.addEventListener('pointerdown',e=>{if(e.button!==0||held!==null)return;e.stopPropagation();pointer=e.pointerId;held=n.id;last=point(e);origin=last;moved=false;p.vx=0;p.vy=0;g.setPointerCapture(pointer);g.style.cursor='grabbing';wake()});
  g.addEventListener('pointermove',e=>{if(e.pointerId!==pointer||!last)return;const q=point(e);if(Math.hypot(q.x-origin.x,q.y-origin.y)>4)moved=true;p.x+=(q.x-last.x)/scale;p.y+=(q.y-last.y)/scale;last=q;paint();wake()});
  for(const name of ['pointerup','pointercancel','lostpointercapture'])g.addEventListener(name,finish);
 }
 function render(){
- held=null;active=visible();arrange();nodeElements.clear();edgeElements.length=0;const vp=$('#viewport');vp.replaceChildren();
- $('#counts').textContent=active.ns.length+' 點・'+active.ls.filter(l=>l.type==='待確認').length+' 條共現線索';$('#breadcrumb').textContent=focus?(themeById.get(focus).label+(key?' / '+byId.get(key).label:'')):'三層全貌｜上下、左右捲動查看';
+ held=null;active=visible();nodeElements.clear();edgeElements.length=0;const vp=$('#viewport');vp.replaceChildren();
+ $('#counts').textContent=active.ns.length+' 點・'+active.ls.filter(l=>l.type==='待確認').length+' 條共現線索';$('#breadcrumb').textContent=focus?(themeById.get(focus).label+(key?' / '+byId.get(key).label:'')):'三層動態網路';
  for(const l of active.ls){const target=byId.get(l.target),line=el('path',{class:'edge'+(l.type==='待確認'?' candidate':''),stroke:themeById.get(target.theme).color,role:'button',tabindex:0,'aria-label':byId.get(l.source).label+'連到'+target.label+'：'+l.type});const title=el('title');title.textContent=l.label+'：'+l.reason;line.append(title);line.onclick=()=>edgeDetail(l);line.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();edgeDetail(l)}};vp.append(line);edgeElements.push([l,line])}
- for(const n of active.ns){const color=themeById.get(n.theme).color,isTheme=n.kind==='重心',isKey=n.kind==='關鍵字',radius=isTheme?21:isKey?8:11;
+ for(const n of active.ns){const color=themeById.get(n.theme).color,isTheme=n.kind==='重心',isKey=n.kind==='關鍵字',radius=isTheme?18:isKey?10:5;
  const g=el('g',{class:'node '+(isTheme?'theme':isKey?'keyword':'project')+(selected===n.id?' selected':''),role:'button',tabindex:0,'aria-label':n.label});
- g.append(el('circle',{r:isTheme?25:18,fill:'transparent','pointer-events':'all'}));g.append(el('circle',{r:radius,fill:color,opacity:isTheme?1:.75,stroke:'#fcfdf6','stroke-width':3}));const t=el('text',{x:radius+9,y:5,'text-anchor':'start'});t.textContent=n.label;g.append(t);const title=el('title');title.textContent=n.label+'｜第'+n.level+'層・'+n.kind;g.append(title);
- g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(n.id)}});bindDrag(g,n);vp.append(g);nodeElements.set(n.id,g)}
+ g.append(el('circle',{r:isTheme?23:isKey?16:11,fill:'transparent','pointer-events':'all'}));g.append(el('circle',{class:'dot',r:radius,fill:color}));const t=el('text',{x:0,y:radius+16,'text-anchor':'middle'});t.textContent=n.label;g.append(t);const title=el('title');title.textContent=n.label+'｜第'+n.level+'層・'+n.kind;g.append(title);
+ g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(n.id)}});g.addEventListener('mouseenter',()=>highlight(n.id));g.addEventListener('mouseleave',()=>highlight(selected));g.addEventListener('focus',()=>highlight(n.id));g.addEventListener('blur',()=>highlight(selected));g.addEventListener('dblclick',()=>{positions.get(n.id).pinned=false;wake();$('#status').textContent='已解除固定：'+n.label});bindDrag(g,n);vp.append(g);nodeElements.set(n.id,g)}
  if(!active.ns.length){const t=el('text',{x:500,y:340,'text-anchor':'middle'});t.textContent='這個月份或關鍵字沒有相符項目。';vp.append(t)}
  const list=$('#nodebuttons');list.replaceChildren();for(const n of active.ns)button(n.label,list,()=>choose(n.id));
- for(const b of $('#themes').children)b.classList.toggle('active',b.dataset.theme===(focus||'all'));
+ updateLabels();$('#depthout').textContent=$('#depth').value+' 層';
  transform();paint();wake();
 }
-function choose(id){const n=byId.get(id);if(!n)return;selected=id;
- if(n.kind==='重心'){focus=n.theme;key=null;$('#search').value=''}
- else if(n.kind==='關鍵字'){focus=n.theme;key=n.id;$('#search').value=''}
- render();detail(n);$('#status').textContent='目前探索：'+n.label;$('.graphscroll').scrollTop=0;
-}
+function choose(id){const n=byId.get(id);if(!n)return;selected=id;detail(n);highlight(id);$('#status').textContent='目前探索：'+n.label;}
 function relatedLinks(n){const ids=n.level===1?new Set(D.nodes.filter(c=>c.theme===n.theme&&c.level===2).map(c=>c.id)):new Set([n.keyword||n.id]);const month=$('#month').value;return D.links.filter(l=>l.type==='待確認'&&(ids.has(l.source)||ids.has(l.target))&&(month==='all'||l.dates.some(day=>day.startsWith(month))))}
-function edgeDetail(l){const d=$('#detail');d.replaceChildren();text('span',l.type==='分類'?'編輯分類':'共現線索・待確認',d,'badge');text('h2',byId.get(l.source).label+' ↔ '+byId.get(l.target).label,d);text('p',l.reason,d,'note');const month=$('#month').value;for(const e of (l.evidence||[]).filter(e=>month==='all'||e.dates.some(day=>day.startsWith(month))))text('p',byId.get(e.source).label+' ＋ '+byId.get(e.target).label+'：'+e.reason+'（六至八月整期統計；目前篩選只判斷有無該月紀錄。）',d,'source');button('探索「'+byId.get(l.source).label+'」',d,()=>choose(l.source));button('探索「'+byId.get(l.target).label+'」',d,()=>choose(l.target))}
-function detail(n){const d=$('#detail');d.replaceChildren();text('span',n.kind,d,'badge');text('h2',n.label,d);text('p',n.description,d);
+function edgeDetail(l){$('#drawer').hidden=false;const d=$('#detail');d.replaceChildren();text('span',l.type==='分類'?'編輯分類':'共現線索・待確認',d,'badge');text('h2',byId.get(l.source).label+' ↔ '+byId.get(l.target).label,d);text('p',l.reason,d,'note');const month=$('#month').value;for(const e of (l.evidence||[]).filter(e=>month==='all'||e.dates.some(day=>day.startsWith(month))))text('p',byId.get(e.source).label+' ＋ '+byId.get(e.target).label+'：'+e.reason+'（六至八月整期統計；目前篩選只判斷有無該月紀錄。）',d,'source');button('探索「'+byId.get(l.source).label+'」',d,()=>choose(l.source));button('探索「'+byId.get(l.target).label+'」',d,()=>choose(l.target))}
+function detail(n){$('#drawer').hidden=false;const d=$('#detail');d.replaceChildren();text('span',n.kind,d,'badge');text('h2',n.label,d);text('p',n.description,d);button('解除這個節點的固定',d,()=>{positions.get(n.id).pinned=false;wake();$('#status').textContent='已解除固定：'+n.label});
  if(n.kind==='重心'||n.kind==='關鍵字'){
  const children=D.nodes.filter(c=>(n.kind==='重心'?c.theme===n.theme&&c.kind==='關鍵字':c.keyword===n.id)&&($('#month').value==='all'||c.dates.some(day=>day.startsWith($('#month').value))));
  text('h3',n.kind==='重心'?'這個重心裡的關鍵字':'相關專案與實踐',d);const items=text('div','',d,'items');for(const c of children)button(c.label,items,()=>choose(c.id));
@@ -144,22 +147,31 @@ function detail(n){const d=$('#detail');d.replaceChildren();text('span',n.kind,d
 function welcome(){const d=$('#detail');d.replaceChildren();text('span','先看重心，再看專案',d,'badge');text('h2','我把時間放在哪裡？',d);text('p','從國文老師、資訊組長、自我領導課程與創作生活，看三個月的累積。',d);
  text('h3','三層，同一張網',d);text('p','① 生活與工作重心：我在意什麼？\n② 知識關鍵字：累積哪些方法？\n③ 專案與實踐：在哪裡實際運用？',d,'steps');
  text('p','總覽完整呈現 96 個節點。實線是建議分類；虛線把原始紀錄中的共現關係串到知識層，不代表已確認因果。點虛線或明細中的關聯按鈕，可看連接依據。',d,'note');
- text('p','上下捲動看完整三層；窄螢幕可左右捲動。點重心或關鍵字聚焦，同時保留一跳相鄰關鍵字。拉動節點仍會牽引相連項目。',d);
+ text('p','節點大小代表三層；顯示層級控制節點數，標籤層級控制文字量。滑過節點突顯一跳關聯，點選開啟明細。拖曳後固定，雙擊解除；重排會清除全部固定位置。',d);
  text('p','工具留在「來源與工具」。Claude 不再是圖的中心，不會因為紀錄多就把每個專案拉向它。',d,'note');
  text('h3','生活紀錄的邊界',d);text('p','目前生活面的資料主要是理財紀錄；沒有足夠資料的家庭、健康或其他生活面向，不先替你補上。',d);
  text('p','7 個重心・'+D.stats.keywords+' 個知識關鍵字・70 個專案與實踐・'+D.stats.knowledge_bridges+' 條知識共現線索。完整期間的主圖已接成一張網；單月缺少紀錄時，不強行補線。',d);
 }
-function reset(){focus=null;key=null;selected=null;scale=1;pan={x:0,y:0};$('#search').value='';$('#month').value='all';render();welcome();$('.graphscroll').scrollTo(0,0);$('#status').textContent='實線：分類　虛線：共現待確認。捲動看全圖，點線看依據。'}
-let start=null;$('#map').addEventListener('pointerdown',e=>{if(e.target.closest('.node'))return;start=point(e);$('#map').setPointerCapture(e.pointerId)});$('#map').addEventListener('pointermove',e=>{if(start){const p=point(e);pan.x+=p.x-start.x;pan.y+=p.y-start.y;start=p;transform()}});for(const event of ['pointerup','pointercancel','lostpointercapture'])$('#map').addEventListener(event,()=>start=null);
-$('#map').addEventListener('wheel',e=>{if(!e.ctrlKey&&!e.metaKey)return;e.preventDefault();scale=Math.max(.55,Math.min(3,scale*(e.deltaY<0?1.08:.92)));transform()},{passive:false});
-$('#in').onclick=()=>{scale=Math.min(3,scale*1.2);transform()};$('#out').onclick=()=>{scale=Math.max(.55,scale/1.2);transform()};$('#reset').onclick=reset;
-$('#search').oninput=()=>{selected=null;render();welcome()};$('#month').oninput=()=>{render();if(selected)detail(byId.get(selected));else welcome()};
-const all=button('重心總覽',$('#themes'),reset);all.dataset.theme='all';for(const t of D.themes){const b=button(t.label,$('#themes'),()=>{focus=t.theme;key=null;selected=t.id;$('#search').value='';render();detail(t)});b.dataset.theme=t.theme}
+function reset(){focus=null;key=null;selected=null;$('#search').value='';$('#month').value='all';$('#depth').value='3';$('#labels').value='2';enabledThemes.clear();for(const t of D.themes)enabledThemes.add(t.theme);for(const input of $('#themes').querySelectorAll('input'))input.checked=true;seedPositions();render();centerGraph();welcome();$('#drawer').hidden=true;$('#status').textContent='拖曳固定・雙擊解除・滾輪縮放・拖空白處平移'}
+let start=null;$('#map').addEventListener('pointerdown',e=>{if(e.target.closest('.node,.edge'))return;start=point(e);$('#map').setPointerCapture(e.pointerId)});$('#map').addEventListener('pointermove',e=>{if(start){const p=point(e);pan.x+=p.x-start.x;pan.y+=p.y-start.y;start=p;transform()}});for(const event of ['pointerup','pointercancel','lostpointercapture'])$('#map').addEventListener(event,()=>start=null);
+$('#map').addEventListener('wheel',e=>{e.preventDefault();const p=point(e),next=Math.max(.1,Math.min(5,scale*(e.deltaY<0?1.08:.92))),ratio=next/scale;pan={x:p.x-(p.x-pan.x)*ratio,y:p.y-(p.y-pan.y)*ratio};scale=next;transform()},{passive:false});
+$('#reset').onclick=reset;$('#center').onclick=centerGraph;
+function zoomBy(ratio){const r=$('#map').getBoundingClientRect(),x=r.width/2,y=r.height/2,next=Math.max(.1,Math.min(5,scale*ratio));ratio=next/scale;pan={x:x-(x-pan.x)*ratio,y:y-(y-pan.y)*ratio};scale=next;transform()}
+$('#zoomin').onclick=()=>zoomBy(1.4);$('#zoomout').onclick=()=>zoomBy(1/1.4);
+$('#reflow').onclick=()=>{seedPositions();render();centerGraph();$('#status').textContent='已重新排列，所有固定位置已解除'};
+$('#help').onclick=()=>{welcome();$('#drawer').hidden=false};
+$('#close').onclick=()=>{$('#drawer').hidden=true;selected=null;highlight(null)};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#close').click()});
+function filterChanged(){selected=null;$('#drawer').hidden=true;render();centerGraph()}
+$('#search').oninput=filterChanged;$('#month').oninput=filterChanged;$('#depth').oninput=filterChanged;$('#labels').oninput=updateLabels;
+for(const t of D.themes){const label=text('label','',$('#themes')),input=document.createElement('input');input.type='checkbox';input.checked=true;input.setAttribute('aria-label',t.label);label.append(input);const dot=text('i','',label);dot.style.background=t.color;text('span',t.label,label);input.onchange=()=>{if(input.checked)enabledThemes.add(t.theme);else enabledThemes.delete(t.theme);filterChanged()}}
+window.addEventListener('resize',centerGraph);
+if(matchMedia('(max-width:650px)').matches){$('.controls').open=false;$('#labels').value='1'}
 $('#range').textContent=D.stats.notes_imported.toLocaleString()+' 份筆記・原有來源全數保留';
 const sc=$('#sourcecontent');text('p','保留 '+D.sourceNodes.length+' 個原始索引節點；只改變知識的組織方式，不刪除原紀錄。',sc);
 text('p','Claude 文件 '+D.stats.claude_notes+' 份、Codex／每日筆記 '+D.stats.codex_notes+' 份；'+D.stats.claude_sessions+' 個 Claude 工作階段索引；'+D.stats.browser_visits+' 筆 Chrome 造訪。',sc);
 text('p','來源工具：'+D.tools.map(n=>n.label).join('、'),sc);text('p','未進主圖的待整理索引：'+D.unmapped.map(n=>n.label).join('、')+'。全部保留於匯出資料。',sc);
 text('p','這是現存來源的整理，不是三個月所有操作的完整還原。',sc);
 $('#export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(D,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='danai-life-work-202606-08.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
-render();welcome();
+render();welcome();centerGraph();setTimeout(centerGraph,1200);
 </script></body></html>

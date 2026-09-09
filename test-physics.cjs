@@ -21,14 +21,13 @@ for(const showCandidates of [false,true]){
   if(i===100){ps.get('grading').x=140;ps.get('grading').y=120}
   speed=step(d.nodes,ls,ps,i>=100&&i<150?'grading':null,Math.pow(.985,Math.max(0,i-150)));
  }
- assert([...ps.values()].every(p=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&p.x>=90&&p.x<=910&&p.y>=85&&p.y<=635),'長時間執行後不可發散或超出邊界');
+ assert([...ps.values()].every(p=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&Math.abs(p.x)<5000&&Math.abs(p.y)<5000),'自由網路不可發散');
  assert(speed<.035,'完整圖譜應能冷卻停止');
 }
-// Exercise the actual three-column anchors and large scrollable canvas too.
-const anchored=d.nodes.map((n,i)=>({...n,anchor:{x:[70,340,650][n.level-1],y:70+i*42},boundsY:4300}));
-const ps=new Map(anchored.map(n=>[n.id,{...n.anchor,vx:0,vy:0}]));
-for(let i=0;i<2400;i++)speed=step(anchored,d.links,ps,null,Math.pow(.985,i));
-assert([...ps.values()].every(p=>Number.isFinite(p.x)&&p.y>=35&&p.y<=4300));
-assert(anchored.every(n=>Math.abs(ps.get(n.id).x-n.anchor.x)<45),'三欄不可被彈簧拉成一團');
-assert(speed<.035);
+const fixed=initial();fixed.get('a').pinned=true;
+for(let i=0;i<120;i++)step(ns,links,fixed,null);
+assert.equal(fixed.get('a').x,180,'放開滑鼠後仍固定');
+fixed.get('a').pinned=false;
+for(let i=0;i<30;i++)step(ns,links,fixed,null);
+assert.notEqual(fixed.get('a').x,180,'解除固定後恢復運動');
 console.log(`通過：語法、拖曳固定、相鄰牽引、放開回穩、${d.nodes.length} 節點含候選與不含候選穩定性。`);

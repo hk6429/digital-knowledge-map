@@ -25,8 +25,9 @@ assert(!d.nodes.some(n=>n.kind==='工具'||n.id==='claude'));
 assert(d.links.every(l=>l.source!=='claude'&&l.target!=='claude'));
 assert.equal(d.nodes.filter(n=>n.id.startsWith('project-')).length,53,'原有具名專案不可遺失');
 const visibleSource=html.slice(html.indexOf('function visible(){'),html.indexOf('function transform(){'));
-const inputs={'#month':{value:'all'},'#search':{value:''}};
-const getView=(focus=null,key=null)=>new Function('D','$','focus','key',visibleSource+';return visible()')(d,s=>inputs[s],focus,key);
+const inputs={'#month':{value:'all'},'#search':{value:''},'#depth':{value:'3'}};
+const enabledThemes=new Set(d.themes.map(t=>t.theme));
+const getView=(focus=null,key=null)=>new Function('D','$','focus','key','enabledThemes',visibleSource+';return visible()')(d,s=>inputs[s],focus,key,enabledThemes);
 assert.equal(getView().ns.length,96,'總覽完整呈現三層');
 assert.deepEqual([...new Set(d.nodes.map(n=>n.level))].sort(),[1,2,3]);
 assert.equal(d.links.filter(l=>l.type==='分類').length,89);
@@ -43,4 +44,9 @@ assert(getView('lead','key-habits').ns.some(n=>n.label==='自我領導力環島�
 for(const month of ['2026-06','2026-07','2026-08']){inputs['#month'].value=month;assert(getView().ns.length>0)}
 inputs['#month'].value='all';inputs['#search'].value='文豪';assert(getView().ns.some(n=>n.label==='文豪笑傳'));
 inputs['#search'].value='Claude';assert.equal(getView().ns.length,0,'工具不可重新變成圖上節點');
+inputs['#search'].value='';
+inputs['#depth'].value='1';assert.equal(getView().ns.length,7);
+inputs['#depth'].value='2';assert.equal(getView().ns.length,26);
+inputs['#depth'].value='3';enabledThemes.delete('language');assert(getView().ns.every(n=>n.theme!=='language'));
+enabledThemes.clear();assert.equal(getView().ns.length,0);
 console.log(`通過：96 節點三層全貌、單一連通網路、${bridgePairs.size} 條有原始依據且不重複的共現線索、聚焦保留鄰接、53 專案保留、搜尋月份及隱私。`);
