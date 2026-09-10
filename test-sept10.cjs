@@ -1,0 +1,16 @@
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const html=fs.readFileSync(__dirname+'/public/index.html','utf8');
+const d=JSON.parse(html.match(/<script id="dataset" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+const b=d.dailyImports.find(x=>x.date==='2026-09-10');
+assert.equal(b.cutoff,'2026-09-10T21:35:37+08:00');
+assert.equal(b.notes_read,12);assert.equal(b.notes_imported,11);
+assert.equal(b.browser_visits,862);assert.equal(b.computer_events,2454);
+assert.equal(b.claude_sessions,3);assert.equal(b.claude_entries,12);
+const today=d.nodes.filter(n=>n.dates.includes(b.date));
+assert.equal(today.length,34);assert.equal(today.filter(n=>n.level===3).length,14);
+for(const id of ['notes-map','voice-practice','audio-review'])assert(today.some(n=>n.id===id));
+for(const id of ['grading','rubric','exam'])assert(!today.some(n=>n.id===id));
+for(const n of d.sourceNodes)assert.equal(n.sources.length,new Set(n.sources.map(s=>s.date+'|'+s.kind)).size);
+for(const word of ['薰平','含息未實現','hk6429@gmail','today-20260910-private'])assert(!html.includes(word));
+assert(d.links.some(l=>l.type==='待確認'&&l.dates.includes(b.date)&&l.source==='key-design'&&l.target==='key-note-method'));
+console.log('通過：9/10 批次、34 單日節點／14 實踐、來源不重複、教學關聯與隱私排除。');
