@@ -17,7 +17,7 @@ export const GROUPS=[
  ['read','閱讀理解','language',['xunzhang-zhaiju','文言解憂站','句讀學院','weijing-library']],
  ['words','字音字形','language',['字字珠璣','xingyin-doushi','ziyuan-tanzong']],
  ['literature','文學與文化','language',['文豪笑傳','翰墨江山','wenren-duel']],
- ['selflearn','自主學習','learning',['自主學習護照','學習航站','self-learning-orbit','wanyao-wenshu']],
+ ['selflearn','自主學習','learning',['自主學習護照','學習航站','self-learning-orbit','wanyao-wenshu','記憶與學習策略']],
  ['feedback','評量與回饋','learning',['AI 輔助批改平台設計','教師評分規準','student-showcase-ink']],
  ['exam','題庫與練習','learning',['題庫內容維護','題庫競技場','五科會考入口','會考國文','會考英語','會考數學','會考社會','會考自然','學測題庫星系','gsat-ziran','gsat-shehui','gsat-guowen','gsat-english-bqe','gsat-math','tvet-exam-galaxy','question_database']],
  ['game','遊戲化學習','learning',['字鬥','步學吾數','科學英雄','geometry-city','beiying-escape-room']],
