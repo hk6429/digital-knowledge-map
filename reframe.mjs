@@ -38,6 +38,8 @@ export const GROUPS=[
  ['reading-life','閱讀與思考','creation',['選書與閱讀探索']],
  ['finance','理財紀錄','life',['ETF 與投資紀錄','帳單與雲端費用檢視']],
  ['leisure','休閒與影音','life',['影音瀏覽與休息']],
+ ['online-services','線上服務與日常瀏覽','life',[]],
+ ['unclassified','待整理足跡','life',[]],
 ];
 const FRIENDLY={'xunzhang-zhaiju':'尋章摘句','xingyin-doushi':'形音鬥士','ziyuan-tanzong':'字源探蹤','weijing-library':'圖書館熄燈後','wenren-duel':'文人對決','self-learning-orbit':'自主學習軌道','wanyao-wenshu':'萬妖文書','student-showcase-ink':'學生作品展示','gsat-ziran':'學測自然','gsat-shehui':'學測社會','gsat-guowen':'學測國文','gsat-english-bqe':'學測英語','gsat-math':'學測數學','tvet-exam-galaxy':'統測題庫星系','question_database':'題庫參考資料','geometry-city':'幾何學習城市','beiying-escape-room':'背影密室逃脫','habit-quest-biw':'七習慣闖關','habit-tycoon':'習慣養成工廠','zizhu-monopoly':'自我領導力環島棋','class-points-299':'班級積分紀錄','teacher-tycoon':'教師養成遊戲','media-literacy-quest':'媒體素養闖關','zgjh-it-quest':'校園資訊任務','tqa-guoxiao':'國小教檢題庫','classroom-ops-slides-hub':'教學與班級經營簡報','wenxin-diaolong':'文心雕龍','fuxiao-miling':'拂曉密令'};
 const DETAIL={'feedback':'重點是教師設定評分規準、設計平台與覆核回饋；不是把教師判斷交給 AI。','finance':'現有生活紀錄以 ETF 與投資相關筆記為主，不能據此推論家庭或健康狀態。','design':'以教學需求決定工具與流程；AI 是方法，不是工作的目的。','reflect':'回看成果、查證、交接與下一步，屬於工作反思的建議分類。'};
@@ -46,7 +48,7 @@ export function reframe(source){
  const themes=THEMES.map(([id,label,color,description])=>({id:'theme-'+id,label,color,description,theme:id,kind:'重心',sources:[],dates:[]}));
  const uniqueDates=ns=>[...new Set(ns.flatMap(n=>n.dates))].sort();
  for(const[id,label,theme,labels]of GROUPS){
-  const members=source.nodes.filter(n=>labels.includes(n.label));if(!members.length)continue;
+  const members=source.nodes.filter(n=>labels.includes(n.label)||n.label==='九月足跡｜'+label);if(!members.length)continue;
   const key={id:'key-'+id,label,theme,kind:'關鍵字',description:DETAIL[id]||'依既有專案用途整理的知識關鍵字；這是可調整的分類，不代表來源已證實因果。',sources:[],dates:uniqueDates(members)};
   nodes.push(key);links.push({source:'theme-'+theme,target:key.id,type:'分類',label:'工作重心 → 知識關鍵字',reason:'依教師角色與現有專案用途整理的建議分類。'});
   for(const n of members){used.add(n.id);const child={...n,label:FRIENDLY[n.label]||n.label,originalLabel:n.label,kind:n.kind==='專案'?'專案':'實踐',theme,keyword:key.id};nodes.push(child);links.push({source:key.id,target:n.id,type:'分類',label:label+' → '+child.label,reason:'依名稱與專案用途歸類；原始來源日期保留於明細。'});}

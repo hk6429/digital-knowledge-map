@@ -196,9 +196,21 @@ text('p','來源工具：'+D.tools.map(n=>n.label).join('、'),sc);text('p','未
 text('p','這是現存來源的整理，不是所有操作的完整還原。',sc);
 for(const batch of D.dailyImports||[]){
  text('p',batch.date+' 截至 '+batch.cutoff.slice(11,16)+'（台灣時間）：'+batch.browser_visits+' 筆 Chrome 造訪、'+batch.computer_events+' 筆前景事件、'+batch.notes_read+' 份文件內容已讀／'+batch.notes_imported+' 份以去識別主題匯入、'+batch.claude_sessions+' 個 Claude 工作階段索引。',sc);
- text('p',batch.method,sc);text('p','9 月 1–8 日未在本次補查；來源各有缺口，事件數不是工時。私人文件與網頁細節不公開。',sc);
+ text('p',batch.method,sc);text('p','此段為舊批次的來源快照；本次九月盤點見上方。事件數不是工時，私人細節不公開。',sc);
 }
 
+if(D.septemberImport){
+ const s=D.septemberImport;
+ $('#period').textContent='2026 六至八月 ＋ 9 月 1–14 日';
+ $('#range').textContent='九月快照：'+s.record_count.toLocaleString()+' 筆紀錄（各來源分列，不與舊快照加總）';
+ const month=$('#month');
+ for(const [value,label] of [['2026-09','九月（全部日期）'],...Object.keys(s.days).sort().map(day=>[day,day.slice(5).replace('-','/')+' 資訊足跡'])])if(![...month.options].some(o=>o.value===value)){const option=document.createElement('option');option.value=value;option.textContent=label;month.append(option)}
+ const summary=document.createElement('section');sc.prepend(summary);text('h3','九月完整盤點：已取得與缺漏',summary);text('p','本次收集截止：'+s.cutoff.slice(0,19)+'（台灣時間）。各項數量採各自來源口徑，不能加總成操作次數。',summary);
+ for(const [kind,count] of Object.entries(s.counts))text('p',kind+'：'+count.toLocaleString()+' 筆',summary);
+ text('p','去除 '+s.duplicate_mirrors+' 份文件鏡像；'+s.unread_files+' 份候選檔案未能讀取。',summary);
+ for(const day of Object.keys(s.days).sort()){const counts=Object.entries(s.days[day]).map(([k,v])=>k+' '+v).join('；');const previous=s.legacy_computer_events.find(x=>x.date===day);text('p',day+'｜'+counts+'；電腦前景事件：'+(previous?previous.count+' 筆（沿用舊快照，本次未更新）':'未取得'),summary,'source')}
+ for(const note of s.limits)text('p',note,summary,'note');text('h3','以下為既有歷史批次（可能重疊，不加總）',summary);
+}
 $('#export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(D,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='danai-life-work-'+D.until+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
 const requestedDate=new URLSearchParams(location.search).get('date');if(requestedDate&&[...$('#month').options].some(o=>o.value===requestedDate))$('#month').value=requestedDate;
 render();welcome();centerGraph();setTimeout(centerGraph,1200);
